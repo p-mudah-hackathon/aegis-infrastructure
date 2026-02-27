@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aegis-infrastructure
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "git@github.com:p-mudah-hackathon/aegis-infrastructure.git"
+    targetRevision: HEAD
+    path: gitops
+    directory:
+      recurse: true
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
