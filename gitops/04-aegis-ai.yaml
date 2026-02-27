@@ -1,0 +1,25 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aegis-ai
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: "git@github.com:p-mudah-hackathon/aegis-infrastructure.git"
+    targetRevision: HEAD
+    path: apps/aegis-ai
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: aegis
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
