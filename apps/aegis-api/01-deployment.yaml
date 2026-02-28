@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: aegis-api
-          image: fierynxx/aegis-api:latest
+          image: fierynxx/aegis-api:806352d
           ports:
             - containerPort: 8001
           envFrom:
