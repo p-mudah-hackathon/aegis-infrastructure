@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: aegis-dashboard
-          image: fierynxx/aegis-dashboard:9f032cd
+          image: fierynxx/aegis-dashboard:a2e7486
           ports:
             - containerPort: 80
 
